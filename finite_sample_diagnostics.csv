@@ -1,0 +1,2 @@
+mean_cycle_time,kl_per_cycle_direct,kl_rate,scgf_first_derivative,scgf_asymptotic_variance_per_cycle,independent_cycle_variance,markov_correlation_variance_correction,fourier_expectation_gap
+1.9924474896658706,0.04873586742222551,0.024460302053128845,0.04873586742222444,0.050754006319543556,0.05326830150382869,-0.0025142951842851355,0.10786093802187818
