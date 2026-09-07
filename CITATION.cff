@@ -5,7 +5,22 @@ type: software
 authors:
   - family-names: Lyu
     given-names: Ruijie
-version: 1.2.0
+    affiliation: University of Groningen
+version: 1.2.1
 date-released: 2026-09-07
 url: "https://github.com/RyanLrj/finite-bandwidth-quantum-jump-timing"
+repository-code: "https://github.com/RyanLrj/finite-bandwidth-quantum-jump-timing"
+abstract: >-
+  Reproducibility code and numerical data for thermodynamic constraints on
+  classical emulation of finite-bandwidth quantum-jump timing. The archive
+  contains the finite-bandwidth trajectory models, fixed-resource classical
+  optimizations, spectral and Fourier-witness audits, finite-sample
+  calculations, detector post-processing tests, and figure-generation code.
+keywords:
+  - quantum trajectories
+  - open quantum systems
+  - quantum thermodynamics
+  - finite-bandwidth detection
+  - stochastic thermodynamics
+  - reproducibility
 license: MIT

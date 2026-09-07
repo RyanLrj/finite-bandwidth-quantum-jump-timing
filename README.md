@@ -28,7 +28,7 @@ Activate the environment using the command appropriate for your platform.
 ## Reproduce the reported analyses
 
 Run commands from the repository root. The following sequence uses the stored
-optimized frontier and regenerates the headline analysis tables and figures:
+coarse resource-grid fits and regenerates the headline analysis tables and figures:
 
 ```bash
 python symmetric_emission_analysis.py
@@ -95,10 +95,11 @@ radians. These are finite candidate-set checks, not a continuum certificate.
 
 ## Citation
 
-Please cite the versioned repository below (no DOI has yet been assigned):
+Please cite the versioned repository below. A Zenodo DOI will be added after
+the archival record is published:
 
 > Ruijie Lyu, *Finite-bandwidth quantum-jump timing: reproducibility code and
-> numerical data*, version 1.2.0 (2026),
+> numerical data*, version 1.2.1 (2026),
 > https://github.com/RyanLrj/finite-bandwidth-quantum-jump-timing.
 
 ## License

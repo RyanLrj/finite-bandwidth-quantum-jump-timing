@@ -102,7 +102,7 @@ def main_figure():
             draw.rectangle((px0, py, px1, baseline_y), fill=color)
     for index, name in enumerate(("ideal", "mild", "moderate", "severe")):
         xx, yy = project(index, 0); draw.text((xx, yy + 50), name, font=font(18), fill="black", anchor="mm")
-    draw.rectangle((750, 930, 775, 955), fill="#2166ac"); draw.text((785, 942), "cycle KL", font=font(20), fill="black", anchor="lm")
+    draw.rectangle((750, 930, 775, 955), fill="#2166ac"); draw.text((785, 942), "KL rate", font=font(20), fill="black", anchor="lm")
     draw.rectangle((750, 970, 775, 995), fill="#f4a582"); draw.text((785, 982), "Fourier bound", font=font(20), fill="black", anchor="lm")
 
     project = axes(draw, boxes[3], "(d) Finite-sample scales", "", "Complete cycles (log)", (-0.5, 1.5), (100, 20000), log_y=True, categorical=True)
