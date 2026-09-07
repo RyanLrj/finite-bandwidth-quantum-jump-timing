@@ -81,15 +81,15 @@ def main_figure():
         draw.line(points, fill=colors[affinity], width=6)
         for point in points:
             draw.ellipse((point[0]-9, point[1]-9, point[0]+9, point[1]+9), fill=colors[affinity])
-        draw.text((850, 105 + affinity * 3), f"A={affinity:g}", font=font(22), fill=colors[affinity])
+        draw.text((850, 105 + affinity * 3), f"affinity={affinity:g}", font=font(22), fill=colors[affinity])
 
-    project = axes(draw, boxes[1], "(b) No-click pole separation", "Decay rate", "Frequency", (0.8, 2.3), (3.5, 4.1))
+    project = axes(draw, boxes[1], "(b) No-click pole separation", "Decay rate  -Re(lambda)", "Frequency", (0.8, 2.3), (3.5, 4.1))
     rows = [r for r in spectral if int(r["phases_per_macrostate"]) == 15]
     for row in rows:
         affinity = float(row["hidden_cycle_affinity"])
         point = project(-float(row["killed_mode_real"]), float(row["killed_mode_imaginary"]))
         draw.ellipse((point[0]-12, point[1]-12, point[0]+12, point[1]+12), fill=colors[affinity])
-        draw.text((point[0]+18, point[1]), f"A={affinity:g}", font=font(20), fill=colors[affinity], anchor="lm")
+        draw.text((point[0]+18, point[1]), f"affinity={affinity:g}", font=font(20), fill=colors[affinity], anchor="lm")
     point = project(0.9, 4.0)
     draw.regular_polygon((point[0], point[1], 18), 5, fill="black")
     draw.text((point[0]+24, point[1]), "quantum", font=font(20, True), fill="black", anchor="lm")
@@ -132,13 +132,23 @@ def resource_phase_diagram():
             x0 = left + j/len(states)*(right-left); x1 = left + (j+1)/len(states)*(right-left); y1 = bottom-i/len(affinities)*(bottom-top); y0 = bottom-(i+1)/len(affinities)*(bottom-top)
             draw.rectangle((x0,y0,x1+1,y1+1), fill=color)
     draw.rectangle((left,top,right,bottom), outline="black", width=3); draw.text((850,35), "Minimum extra classical decay at frequency 4", font=font(38,True), fill="black", anchor="mm")
-    draw.text((850,1070), "Hidden-ring states N", font=font(30), fill="black", anchor="mm"); draw.text((left,70), "Cycle affinity A", font=font(25), fill="black", anchor="lm")
+    draw.text((850,1070), "Hidden-ring states N", font=font(30), fill="black", anchor="mm"); draw.text((left,70), "Cycle affinity", font=font(25), fill="black", anchor="lm")
     for count in (10,20,30,40,50,60):
         x = left+(count-states[0])/(states[-1]-states[0])*(right-left); draw.text((x,bottom+35),str(count),font=font(22),fill="black",anchor="mm")
     for affinity in (20,40,60,80,100):
         y = bottom-(affinity-affinities[0])/(affinities[-1]-affinities[0])*(bottom-top); draw.text((left-25,y),str(affinity),font=font(22),fill="black",anchor="rm")
-    for k,label in enumerate(("0.25","0.5","1","2","4","8")):
-        x0=1530; y0=180+k*90; value=k/5; color=(int(250-170*value),int(245-190*value),int(210-90*value)); draw.rectangle((x0,y0,x0+45,y0+55),fill=color); draw.text((1585,y0+27),label,font=font(22),fill="black",anchor="lm")
+    bar_left, bar_top, bar_right, bar_bottom = 1530, 180, 1575, 800
+    for y in range(bar_top, bar_bottom):
+        value = (bar_bottom - y) / (bar_bottom - bar_top)
+        color = (int(250-170*value), int(245-190*value), int(210-90*value))
+        draw.line((bar_left, y, bar_right, y), fill=color, width=1)
+    draw.rectangle((bar_left, bar_top, bar_right, bar_bottom), outline="black", width=2)
+    draw.text(((bar_left+bar_right)//2, 135), "extra decay", font=font(22, True), fill="black", anchor="mm")
+    for label in ("0.25", "0.5", "1", "2", "4", "8"):
+        fraction = np.clip((np.log10(float(label)) + 0.6) / 1.5, 0, 1)
+        y = bar_bottom - fraction * (bar_bottom - bar_top)
+        draw.line((bar_right, y, bar_right+9, y), fill="black", width=2)
+        draw.text((bar_right+16, y), label, font=font(22), fill="black", anchor="lm")
     save(image, "fig_resource_phase_diagram")
 
 
