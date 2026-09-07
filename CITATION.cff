@@ -8,6 +8,7 @@ authors:
     affiliation: University of Groningen
 version: 1.2.1
 date-released: 2026-09-07
+doi: "10.5281/zenodo.22639228"
 url: "https://github.com/RyanLrj/finite-bandwidth-quantum-jump-timing"
 repository-code: "https://github.com/RyanLrj/finite-bandwidth-quantum-jump-timing"
 abstract: >-

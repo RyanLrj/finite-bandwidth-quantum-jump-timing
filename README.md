@@ -1,5 +1,7 @@
 # Finite-bandwidth quantum-jump timing
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22639228.svg)](https://doi.org/10.5281/zenodo.22639228)
+
 Reproducibility code and numerical data for a study of thermodynamic limits on
 classical emulation of finite-bandwidth quantum-jump timing.
 
@@ -95,12 +97,16 @@ radians. These are finite candidate-set checks, not a continuum certificate.
 
 ## Citation
 
-Please cite the versioned repository below. A Zenodo DOI will be added after
-the archival record is published:
+Please cite the archived version used in the study:
 
 > Ruijie Lyu, *Finite-bandwidth quantum-jump timing: reproducibility code and
-> numerical data*, version 1.2.1 (2026),
-> https://github.com/RyanLrj/finite-bandwidth-quantum-jump-timing.
+> numerical data*, version 1.2.1 (2026), Zenodo,
+> https://doi.org/10.5281/zenodo.22639228.
+
+The [GitHub repository](https://github.com/RyanLrj/finite-bandwidth-quantum-jump-timing)
+contains the latest revision. The concept DOI
+[10.5281/zenodo.22639227](https://doi.org/10.5281/zenodo.22639227) resolves to
+the collection of archived versions.
 
 ## License
 
