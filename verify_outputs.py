@@ -37,6 +37,14 @@ def main() -> None:
             )
         )
     )
+    robustness = {
+        row["quantity"]: row
+        for row in csv.DictReader(
+            (ROOT / "fourier_witness_robustness_summary.csv").open(
+                newline="", encoding="utf-8"
+            )
+        )
+    }
 
     close(float(best["asymptotic_kl_rate"]), 0.0244603020531)
     close(float(best["total_ep_rate"]), 11.1700804549)
@@ -52,6 +60,27 @@ def main() -> None:
         close(float(row["final_kl_rate"]), expected)
         if float(row["final_kl_rate"]) <= float(best["asymptotic_kl_rate"]):
             raise AssertionError("a restart unexpectedly improves the stored frontier")
+
+    close(
+        float(robustness["minimum_gap_over_all_anchor_candidate_pairs"]["value"]),
+        0.107775240750,
+    )
+    close(
+        float(robustness["minimum_leave_anchor_out_gap"]["value"]),
+        0.107775240750,
+    )
+    close(
+        float(robustness["minimum_gap_at_physical_drive_frequency"]["value"]),
+        0.107597354209,
+    )
+    close(
+        float(robustness["minimum_gap_over_frequency_scan"]["value"]),
+        0.0922891101545,
+    )
+    close(
+        float(robustness["minimum_gap_phase_error_sd_0.20"]["value"]),
+        0.100877188412,
+    )
 
     forbidden = {".tex", ".bib", ".pdf", ".doc", ".docx"}
     leaked = [

@@ -1,0 +1,12 @@
+quantity,value,detail
+minimum_gap_over_all_anchor_candidate_pairs,0.10777524074985242,9 anchors x 9 evaluated candidates at omega=4.0548
+minimum_leave_anchor_out_gap,0.10777524074985242,anchor candidate excluded from each test set
+smallest_anchor_worst_case_gap,0.10777524074985242,minimum across the nine anchor-specific worst cases
+largest_anchor_worst_case_gap,0.10786093802187821,maximum across the nine anchor-specific worst cases
+minimum_gap_at_physical_drive_frequency,0.10759735420940678,N31_A60 phases recomputed at omega=Omega=4
+positive_frequency_interval_lower,3.8,scan step 0.005 with N31_A60 phases frozen at omega=4.0548
+positive_frequency_interval_upper,4.299999999999989,scan step 0.005 with N31_A60 phases frozen at omega=4.0548
+minimum_gap_over_frequency_scan,0.09228911015449387,"worst case over nine candidates and omega in [3.8,4.3]"
+minimum_gap_phase_error_sd_0.05,0.10746178463570552,100 fixed-seed trials
+minimum_gap_phase_error_sd_0.10,0.10603939629063983,100 fixed-seed trials
+minimum_gap_phase_error_sd_0.20,0.10087718841228652,100 fixed-seed trials

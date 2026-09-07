@@ -34,6 +34,7 @@ optimized frontier and regenerates the headline analysis tables and figures:
 python symmetric_emission_analysis.py
 python optimization_restart_audit.py
 python composite_fourier_witness.py
+python fourier_witness_robustness.py
 python finite_sample_power.py
 python detector_robustness.py
 python paper_figures.py
@@ -70,13 +71,22 @@ The three 300-iteration perturbation restarts converge to KL rates between
 0.0244743092 and 0.0246873927. None improves the stored candidate. This is a
 local seed-sensitivity check, not a global-optimality certificate.
 
+The Fourier-witness audit constructs phases from each of the nine resource
+points and evaluates every witness against all nine candidates. All 81 gaps
+are positive, with minimum 0.107775241. The minimum remains 0.107597354 at the
+physical frequency 4, 0.092289110 over the frequency interval 3.8--4.3, and
+0.100877188 in 100 fixed-seed phase-error trials at standard deviation 0.20
+radians. These are finite candidate-set checks, not a continuum certificate.
+
 ## File guide
 
 - `symmetric_emission_frontier.py`: fixed-resource classical optimization.
 - `optimization_restart_audit.py`: fixed-seed perturbation restart audit for
-  the strongest reported candidate.
+  the best-fitting reported candidate.
 - `symmetric_emission_analysis.py`: KL decomposition and spectral audit.
 - `composite_fourier_witness.py`: one frozen witness over nine candidates.
+- `fourier_witness_robustness.py`: nine-anchor, frequency, and phase-error
+  audit for the frozen witness.
 - `finite_sample_power.py`: likelihood and bounded-statistic sample scales.
 - `detector_robustness.py`: defined detector post-processing channels.
 - `paper_figures.py`: regenerates figures from the CSV files.
@@ -85,10 +95,10 @@ local seed-sensitivity check, not a global-optimality certificate.
 
 ## Citation
 
-Please cite the archived release or, until a DOI is assigned, this repository:
+Please cite the versioned repository below (no DOI has yet been assigned):
 
 > Ruijie Lyu, *Finite-bandwidth quantum-jump timing: reproducibility code and
-> numerical data*, version 1.1.0 (2026),
+> numerical data*, version 1.2.0 (2026),
 > https://github.com/RyanLrj/finite-bandwidth-quantum-jump-timing.
 
 ## License
