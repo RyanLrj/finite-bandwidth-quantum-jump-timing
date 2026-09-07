@@ -5,7 +5,7 @@ type: software
 authors:
   - family-names: Lyu
     given-names: Ruijie
-version: 1.0.0
-date-released: 2026-09-06
+version: 1.1.0
+date-released: 2026-09-07
 url: "https://github.com/RyanLrj/finite-bandwidth-quantum-jump-timing"
 license: MIT

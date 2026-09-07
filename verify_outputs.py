@@ -30,6 +30,13 @@ def main() -> None:
         )
     )
     best = min(frontier, key=lambda row: float(row["asymptotic_kl_rate"]))
+    restarts = list(
+        csv.DictReader(
+            (ROOT / "optimization_restart_audit.csv").open(
+                newline="", encoding="utf-8"
+            )
+        )
+    )
 
     close(float(best["asymptotic_kl_rate"]), 0.0244603020531)
     close(float(best["total_ep_rate"]), 11.1700804549)
@@ -38,6 +45,13 @@ def main() -> None:
     close(float(summary["pinsker_rate_from_fourier_gap"]), 0.002919520342)
     close(float(summary["mean_quantum_cycle_time"]), 1.99244748967)
     close(float(diagnostics["scgf_asymptotic_variance_per_cycle"]), 0.05075400632)
+    expected_restarts = (0.0244765463, 0.0244743092, 0.0246873927)
+    if len(restarts) != len(expected_restarts):
+        raise AssertionError("restart audit must contain three rows")
+    for row, expected in zip(restarts, expected_restarts):
+        close(float(row["final_kl_rate"]), expected)
+        if float(row["final_kl_rate"]) <= float(best["asymptotic_kl_rate"]):
+            raise AssertionError("a restart unexpectedly improves the stored frontier")
 
     forbidden = {".tex", ".bib", ".pdf", ".doc", ".docx"}
     leaked = [

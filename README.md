@@ -32,6 +32,7 @@ optimized frontier and regenerates the headline analysis tables and figures:
 
 ```bash
 python symmetric_emission_analysis.py
+python optimization_restart_audit.py
 python composite_fourier_witness.py
 python finite_sample_power.py
 python detector_robustness.py
@@ -65,9 +66,15 @@ The verification script checks the following stored values:
 These numbers describe the specified 31-state, affinity-60 candidate. They are
 not a certified global optimum over every hidden stochastic model.
 
+The three 300-iteration perturbation restarts converge to KL rates between
+0.0244743092 and 0.0246873927. None improves the stored candidate. This is a
+local seed-sensitivity check, not a global-optimality certificate.
+
 ## File guide
 
 - `symmetric_emission_frontier.py`: fixed-resource classical optimization.
+- `optimization_restart_audit.py`: fixed-seed perturbation restart audit for
+  the strongest reported candidate.
 - `symmetric_emission_analysis.py`: KL decomposition and spectral audit.
 - `composite_fourier_witness.py`: one frozen witness over nine candidates.
 - `finite_sample_power.py`: likelihood and bounded-statistic sample scales.
@@ -81,7 +88,7 @@ not a certified global optimum over every hidden stochastic model.
 Please cite the archived release or, until a DOI is assigned, this repository:
 
 > Ruijie Lyu, *Finite-bandwidth quantum-jump timing: reproducibility code and
-> numerical data*, version 1.0.0 (2026),
+> numerical data*, version 1.1.0 (2026),
 > https://github.com/RyanLrj/finite-bandwidth-quantum-jump-timing.
 
 ## License
